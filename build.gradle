@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'in.achuala.payments'
-version '1.0.0'
+version '1.0.0.Final'
 
 repositories {
     mavenCentral()
