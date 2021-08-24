@@ -40,6 +40,7 @@ def jaxbOutDir = file(project.buildDir.name + '/generated/jaxb/java/')
 jaxb {
     // generate java code from schema
     javaGen {
+
         iso20022_bah001 {
             outputDir = jaxbOutDir
             packageName = 'org.iso20022.bah.v02'
@@ -66,6 +67,7 @@ jaxb {
             schema = file("src/main/resources/xsd/iso20022/pacs/pacs.007.001.11.xsd")
         }
         iso20022_pacs008 {
+            args = ["-extension"]
             outputDir = jaxbOutDir
             packageName = 'org.iso20022.pacs008.v10'
             schema = file("src/main/resources/xsd/iso20022/pacs/pacs.008.001.10.xsd")
@@ -120,6 +122,8 @@ dependencies {
     compileOnly 'com.sun.xml.bind:jaxb-impl:3.0.2'
     compileOnly 'com.sun.xml.bind:jaxb-core:3.0.2'
     compileOnly 'org.glassfish.jaxb:jaxb-runtime:3.0.2'
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
 }
 
 test {
