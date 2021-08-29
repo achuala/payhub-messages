@@ -1,0 +1,15 @@
+<xs:schema xmlns="urn:in:achuala:payhub:tech:xsd:pacs.003.001.09" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+           targetNamespace="urn:in:achuala:payhub:tech:xsd:pacs.003.001.09"
+           xmlns:pacs003001009="urn:iso:std:iso:20022:tech:xsd:pacs.003.001.09"
+           xmlns:bah001001002="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+    <xs:import schemaLocation="../../../../iso20022/pacs/pacs.003.001.09.xsd" namespace="urn:iso:std:iso:20022:tech:xsd:pacs.003.001.09"/>
+    <xs:import schemaLocation="../../../../iso20022/bah/head.001.001.02.xsd" namespace="urn:iso:std:iso:20022:tech:xsd:head.001.001.02"/>
+    <xs:element name="Pacs003001009">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Header" type="bah001001002:BusinessApplicationHeaderV02" minOccurs="0"/>
+                <xs:element name="FIToFICstmrDrctDbt" type="pacs003001009:FIToFICustomerDirectDebitV09" minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

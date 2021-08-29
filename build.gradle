@@ -1,22 +1,16 @@
 plugins {
-    id 'java-library'
-    id 'maven-publish'
-    id "com.intershop.gradle.jaxb" version "5.1.0"
+    id  'java-library'
+    id  "com.intershop.gradle.jaxb" version "5.1.0"
+    id  "maven-publish"
+    id  'signing'
+    id  "io.github.gradle-nexus.publish-plugin" version "1.1.0"
 }
 
-group 'in.achuala.payments'
-version '1.0.1'
+group 'io.github.achuala'
+version '1.0.2'
 
 repositories {
     mavenCentral()
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-        }
-    }
 }
 
 
@@ -28,14 +22,60 @@ jaxb {
         pacs002_v12 {
            outputDir = jaxbOutDir
            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/pacs002v12.xjb')
-           schema = file("src/main/resources/xsd/in/achuala/payments/payhub/pacs.002.001.012.xsd")
+           schema = file("src/main/resources/xsd/in/achuala/payments/payhub/pacs.002.001.12.xsd")
+        }
+        pacs003_v09 {
+            outputDir = jaxbOutDir
+            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/pacs003v09.xjb')
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/pacs.003.001.09.xsd")
+        }
+        pacs004_v11 {
+            outputDir = jaxbOutDir
+            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/pacs004v11.xjb')
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/pacs.004.001.11.xsd")
+        }
+        pacs007_v11 {
+            outputDir = jaxbOutDir
+            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/pacs007v11.xjb')
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/pacs.007.001.11.xsd")
         }
         pacs008_v10 {
             outputDir = jaxbOutDir
             binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/pacs008v10.xjb')
-            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/pacs.008.001.010.xsd")
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/pacs.008.001.10.xsd")
+        }
+        pacs009_v10 {
+            outputDir = jaxbOutDir
+            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/pacs009v10.xjb')
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/pacs.009.001.10.xsd")
+        }
+        pacs010_v05 {
+            outputDir = jaxbOutDir
+            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/pacs010v05.xjb')
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/pacs.010.001.05.xsd")
         }
 
+
+        pain001_v11 {
+            outputDir = jaxbOutDir
+            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/pain001v11.xjb')
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/pain.001.001.11.xsd")
+        }
+        pain002_v12 {
+            outputDir = jaxbOutDir
+            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/pain002v12.xjb')
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/pain.002.001.12.xsd")
+        }
+        pain007_v11 {
+            outputDir = jaxbOutDir
+            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/pain007v11.xjb')
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/pain.007.001.11.xsd")
+        }
+        pain008_v10 {
+            outputDir = jaxbOutDir
+            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/pain008v10.xjb')
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/pain.008.001.10.xsd")
+        }
     }
 }
 
@@ -50,6 +90,69 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.20'
 }
 
-test {
-    useJUnitPlatform()
+
+task javadocJar(type: Jar) {
+    archiveClassifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    archiveClassifier = 'sources'
+    duplicatesStrategy DuplicatesStrategy.EXCLUDE
+    from sourceSets.main.allSource
+}
+
+signing {
+    sign publishing.publications
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from(components.java)
+            artifact sourcesJar
+            artifact javadocJar
+
+            pom {
+                name = 'ISO20022 Messages'
+                description = 'Jakarta JAXB3.0 based ISO20022 messages'
+                url = 'https://github.com/achuala/payhub-messages'
+
+                licenses {
+                    license {
+                        name = 'The MIT License'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'karthikraman22'
+                        name = 'Karthik Raman'
+                        email = 'kronline22@gmail.com'
+                    }
+
+                    scm {
+                        connection = 'scm:git:git://github.com/achuala/payhub-messages.git'
+                        developerConnection = 'scm:git:ssh://github.com:achuala/payhub-messages.git'
+                        url = 'https://github.com/achuala/payhub-messages/tree/main'
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+nexusPublishing {
+    repositories {
+        sonatype {  //only for users registered in Sonatype after 24 Feb 2021
+            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
+
+            snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
+        }
+    }
 }

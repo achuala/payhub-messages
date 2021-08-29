@@ -1,5 +1,5 @@
 <bindings version="3.0" xmlns="https://jakarta.ee/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <bindings schemaLocation="../pacs.008.001.010.xsd">
+    <bindings schemaLocation="../pacs.008.001.10.xsd">
         <schemaBindings>
             <package name="in.achuala.payhub.messages.pacs008_001.v10"/>
         </schemaBindings>

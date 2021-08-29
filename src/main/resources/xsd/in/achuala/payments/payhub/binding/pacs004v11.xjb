@@ -1,7 +1,7 @@
 <bindings version="3.0" xmlns="https://jakarta.ee/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <bindings schemaLocation="../pacs.002.001.12.xsd">
+    <bindings schemaLocation="../pacs.004.001.11.xsd">
         <schemaBindings>
-            <package name="in.achuala.payhub.messages.pacs002_001.v12"/>
+            <package name="in.achuala.payhub.messages.pacs004_001.v11"/>
         </schemaBindings>
     </bindings>
 
@@ -10,9 +10,9 @@
             <package name="org.iso20022.bah001_001.v02"/>
         </schemaBindings>
     </bindings>
-    <bindings schemaLocation="../../../../../iso20022/pacs/pacs.002.001.12.xsd">
+    <bindings schemaLocation="../../../../../iso20022/pacs/pacs.004.001.11.xsd">
         <schemaBindings>
-            <package name="org.iso20022.pacs002_001.v12"/>
+            <package name="org.iso20022.pacs004_001.v11"/>
         </schemaBindings>
     </bindings>
 </bindings>
