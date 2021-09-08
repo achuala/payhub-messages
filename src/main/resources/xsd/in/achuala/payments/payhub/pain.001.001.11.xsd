@@ -8,7 +8,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="Header" type="bah001001002:BusinessApplicationHeaderV02" minOccurs="0"/>
-                <xs:element name="CstmrCdtTrfInitn" type="pain001001011:CustomerCreditTransferInitiationV11" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="Document" type="pain001001011:Document" minOccurs="1" maxOccurs="1"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

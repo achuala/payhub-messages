@@ -7,7 +7,7 @@ plugins {
 }
 
 group 'io.github.achuala'
-version '1.0.2'
+version '1.0.3'
 
 repositories {
     mavenCentral()
@@ -75,6 +75,16 @@ jaxb {
             outputDir = jaxbOutDir
             binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/pain008v10.xjb')
             schema = file("src/main/resources/xsd/in/achuala/payments/payhub/pain.008.001.10.xsd")
+        }
+        pain013_v09 {
+            outputDir = jaxbOutDir
+            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/pain013v09.xjb')
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/pain.013.001.09.xsd")
+        }
+        pain014_v09 {
+            outputDir = jaxbOutDir
+            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/pain014v09.xjb')
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/pain.014.001.09.xsd")
         }
     }
 }
