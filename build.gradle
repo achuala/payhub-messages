@@ -7,7 +7,7 @@ plugins {
 }
 
 group 'io.github.achuala'
-version '1.0.3'
+version '1.0.4'
 
 repositories {
     mavenCentral()
@@ -19,6 +19,31 @@ def jaxbOutDir = file(project.buildDir.name + '/generated/jaxb/java/')
 jaxb {
     // generate java code from schema
     javaGen {
+        camt029_v11 {
+            outputDir = jaxbOutDir
+            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/camt029v11.xjb')
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/camt.029.001.11.xsd")
+        }
+        camt052_v09 {
+            outputDir = jaxbOutDir
+            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/camt052v09.xjb')
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/camt.052.001.09.xsd")
+        }
+        camt053_v09 {
+            outputDir = jaxbOutDir
+            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/camt053v09.xjb')
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/camt.053.001.09.xsd")
+        }
+        camt054_v09 {
+            outputDir = jaxbOutDir
+            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/camt054v09.xjb')
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/camt.054.001.09.xsd")
+        }
+        camt056_v10 {
+            outputDir = jaxbOutDir
+            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/camt056v10.xjb')
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/camt.056.001.10.xsd")
+        }
         pacs002_v12 {
            outputDir = jaxbOutDir
            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/pacs002v12.xjb')
@@ -85,6 +110,16 @@ jaxb {
             outputDir = jaxbOutDir
             binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/pain014v09.xjb')
             schema = file("src/main/resources/xsd/in/achuala/payments/payhub/pain.014.001.09.xsd")
+        }
+        remt001_v05 {
+            outputDir = jaxbOutDir
+            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/remt001v05.xjb')
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/remt.001.001.05.xsd")
+        }
+        remt002_v02 {
+            outputDir = jaxbOutDir
+            binding = file('src/main/resources/xsd/in/achuala/payments/payhub/binding/remt002v02.xjb')
+            schema = file("src/main/resources/xsd/in/achuala/payments/payhub/remt.002.001.02.xsd")
         }
     }
 }

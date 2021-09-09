@@ -1,0 +1,18 @@
+<bindings version="3.0" xmlns="https://jakarta.ee/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <bindings schemaLocation="../camt.053.001.09.xsd">
+        <schemaBindings>
+            <package name="in.achuala.payhub.messages.camt053_001.v09"/>
+        </schemaBindings>
+    </bindings>
+
+    <bindings schemaLocation="../../../../../iso20022/bah/head.001.001.02.xsd">
+        <schemaBindings>
+            <package name="org.iso20022.bah001_001.v02"/>
+        </schemaBindings>
+    </bindings>
+    <bindings schemaLocation="../../../../../iso20022/camt/camt.053.001.09.xsd">
+        <schemaBindings>
+            <package name="org.iso20022.camt053_001.v09"/>
+        </schemaBindings>
+    </bindings>
+</bindings>
