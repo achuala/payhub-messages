@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:in:achuala:payhub:tech:xsd:upix.001.001.01" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified" targetNamespace="urn:in:achuala:payhub:tech:xsd:upix.001.001.01">
+    <xs:element name="Document" type="Document"/>
+    <xs:complexType name="Document">
+        <xs:sequence>
+            <xs:element name="AddlUpiPmtInf" type="AdditionalUpiPaymentInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AdditionalUpiPaymentInfo">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" name="RiskScore" type="Max35Text">
+                <xs:annotation>
+                    <xs:documentation source="Name" xml:lang="EN">Max35Text</xs:documentation>
+                    <xs:documentation source="Definition" xml:lang="EN">RiskScore</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="1" minOccurs="0" name="DbtrVpa" type="Max35Text">
+                <xs:annotation>
+                    <xs:documentation source="Name" xml:lang="EN">Max35Text</xs:documentation>
+                    <xs:documentation source="Definition" xml:lang="EN">Debtor VPA.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="1" minOccurs="0" name="DbtrType" type="Max35Text">
+                <xs:annotation>
+                    <xs:documentation source="Name" xml:lang="EN">Max35Text</xs:documentation>
+                    <xs:documentation source="Definition" xml:lang="EN">Debtor Type</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="1" minOccurs="0" name="DbtrDvcInfo" type="Max1024Text">
+                <xs:annotation>
+                    <xs:documentation source="Name" xml:lang="EN">Max1024Text</xs:documentation>
+                    <xs:documentation source="Definition" xml:lang="EN">Debtor Device Info.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="1" minOccurs="0" name="CdtrVpa" type="Max35Text">
+                <xs:annotation>
+                    <xs:documentation source="Name" xml:lang="EN">Max35Text</xs:documentation>
+                    <xs:documentation source="Definition" xml:lang="EN">Creditor VPA.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="1" minOccurs="0" name="CdtrType" type="Max35Text">
+                <xs:annotation>
+                    <xs:documentation source="Name" xml:lang="EN">Max35Text</xs:documentation>
+                    <xs:documentation source="Definition" xml:lang="EN">Creditor Type</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CdtrDvcInfo" type="Max1024Text">
+                <xs:annotation>
+                    <xs:documentation source="Name" xml:lang="EN">Max1024Text</xs:documentation>
+                    <xs:documentation source="Definition" xml:lang="EN">Creditor Device Info.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="1" minOccurs="0" name="MerchInfo" type="Max1024Text">
+                <xs:annotation>
+                    <xs:documentation source="Name" xml:lang="EN">Max1024Text</xs:documentation>
+                    <xs:documentation source="Definition" xml:lang="EN">Merchant Info.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="Max35Text">
+        <xs:annotation>
+            <xs:documentation source="Name" xml:lang="EN">Max35Text</xs:documentation>
+            <xs:documentation source="Definition" xml:lang="EN">Specifies a character string with a maximum length of 35 characters.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="35"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="Max1024Text">
+        <xs:annotation>
+            <xs:documentation source="Name" xml:lang="EN">Max1024Text</xs:documentation>
+            <xs:documentation source="Definition" xml:lang="EN">Specifies a character string with a maximum length of 1024 characters.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="1024"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
