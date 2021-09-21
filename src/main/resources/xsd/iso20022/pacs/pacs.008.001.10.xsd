@@ -15,9 +15,8 @@
 
 Any and all rights, including title, ownership rights, copyright, trademark, patents, and any other intellectual property rights of whatever nature in this component will remain the exclusive property of SWIFT or its licensors. -->
 <xs:schema xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.10" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-           targetNamespace="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.10"
-xmlns:ext="urn:in:achuala:payhub:tech:xsd:upix.001.001.01">
-    <xs:import schemaLocation="../../in/achuala/payments/payhub/upix.001.001.01.xsd" namespace="urn:in:achuala:payhub:tech:xsd:upix.001.001.01"/>
+           targetNamespace="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.10"  xmlns:ext="urn:in:achuala:payhub:tech:xsd:upi.pacs.008.001.10">
+    <xs:import schemaLocation="../../in/achuala/payments/payhub/extn/upi.pacs.008.001.10.xsd" namespace="urn:in:achuala:payhub:tech:xsd:upi.pacs.008.001.10"/>
     <xs:element name="Document" type="Document"/>
     <xs:complexType name="AccountIdentification4Choice">
         <xs:annotation>

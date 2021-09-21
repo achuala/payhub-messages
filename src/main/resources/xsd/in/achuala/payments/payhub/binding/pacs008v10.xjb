@@ -5,6 +5,12 @@
         </schemaBindings>
     </bindings>
 
+    <bindings schemaLocation="../extn/upi.pacs.008.001.10.xsd">
+        <schemaBindings>
+            <package name="in.achuala.payhub.messages.extn.upi.pacs008_001.v10"/>
+        </schemaBindings>
+    </bindings>
+
     <bindings schemaLocation="../../../../../iso20022/bah/head.001.001.02.xsd">
         <schemaBindings>
             <package name="org.iso20022.bah001_001.v02"/>
@@ -15,4 +21,5 @@
             <package name="org.iso20022.pacs008_001.v10"/>
         </schemaBindings>
     </bindings>
+
 </bindings>

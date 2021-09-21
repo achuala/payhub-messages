@@ -9,6 +9,10 @@ plugins {
 group 'io.github.achuala'
 version '1.0.5'
 
+sourceCompatibility = 11
+targetCompatibility = 11
+
+
 repositories {
     mavenCentral()
 }
@@ -135,7 +139,11 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.20'
 }
 
-
+jar {
+    exclude '**/**/*.xsd'
+    exclude '**/**/*.xjb'
+    includeEmptyDirs false
+}
 task javadocJar(type: Jar) {
     archiveClassifier = 'javadoc'
     from javadoc
